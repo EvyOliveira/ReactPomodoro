@@ -1,7 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
-export default function App() {
-    return (
-        <App/>
-    );
-}
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
