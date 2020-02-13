@@ -1,14 +1,21 @@
-/* eslint-disable react/jsx-no-undef */
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <p>Hello, I'm Pomodoro!</p>
-            </div>
-        );
+
+function App(){
+    const [counter, setCounter] = useState(0);
+
+    function IncrementCounter() {
+        setCounter(counter + 1);
     }
+
+    return (
+        <>
+
+            <h1>Contador: {counter}</h1>
+            <button onClick={IncrementCounter}>Incrementar</button>
+        </>
+    );
 }
 
 export default App;
+
