@@ -1,5 +1,5 @@
 import React from 'react';
-//import { userTimer } from 'use-timer';
+import { useTimer } from 'use-timer';
 //import CycleCounter from './CycleCounter';
 
 function App() {

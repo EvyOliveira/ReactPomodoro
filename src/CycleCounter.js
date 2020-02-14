@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
-import { useTimer } from 'use-timer';
-import App from './App';
-
+import React from "react";
+//import { useState } from 'react';
+import App from "./App";
 
 function CycleCounter(props) {
-
   const step = props.step;
   if (step <= 4) {
     return <App />;
   }
   return <App />;
-  
-    return (
-        <React.Fragment>
-          <div>
-          <h1>Contador: {CycleCounter}</h1>
-          </div>
-          <App />
-        </React.Fragment>
-      );
-  };
+}
 
-export default CycleCounter;
+return (
+  <React.Fragment>
+    <div></div>
+    <p>Contador: {CycleCounter}</p>
+  </React.Fragment>
+);
