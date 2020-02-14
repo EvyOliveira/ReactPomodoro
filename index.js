@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './src/page/App';
 import * as serviceWorker from './services/serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
+global.jQuery = require('jquery');
+require('bootstrap');
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
