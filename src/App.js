@@ -1,12 +1,8 @@
-import React from 'react';
-import Counter from './Counter';
-import CycleCounter from './CycleCounter';
+import React from "react";
+import Counter from "./Counter";
 
 function App() {
-  return (
-      <Counter/>, 
-      <CycleCounter/>
-  );
+  return <Counter />;
 }
 
 export default App;

@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "react-time-format": "0.0.5"
   }
 }
