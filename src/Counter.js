@@ -1,9 +1,13 @@
 import React from "react";
 import { useTimer } from "use-timer";
+import { useState } from "react";
+
 import { formatTime } from "./utils/formatTime";
 
 function Counter() {
-  const { time, start, pause, reset, step } = useTimer({
+  const [count, setCount] = useState(0);
+
+  const { time, start, pause, reset } = useTimer({
     initialTime: 1500,
     timerType: "DECREMENTAL",
     endTime: 0
@@ -18,7 +22,7 @@ function Counter() {
           <button onClick={reset}>Reset</button>
         </div>
         <p>Elapsed time: {formatTime(time)}</p>
-        <p>Cycles: {step}</p>
+        <p onClick={() => setCount(count + 1)}>Cycles completed:</p>
       </div>
     </React.Fragment>
   );
