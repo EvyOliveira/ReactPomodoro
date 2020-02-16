@@ -3,12 +3,12 @@ import { useTimer } from "use-timer";
 import { formatTime } from "./utils/formatTime";
 
 const timerConfig = {
-initialTime : 10,
+initialTime : 25,
 timerType : "DECREMENTAL",
 endTime : 0,
 }
 
-let breaks = -1;
+let breaks = 0;
 let completeCycles = 0;
 let isBreak = false;
 
@@ -21,20 +21,28 @@ function App() {
   if (time === 0 && !isBreak) {
     completeCycles++;
     breaks++;
-
+    
     isBreak = true;
 
-    if (breaks < 4) timerConfig.initialTime = 300;
-    else {
-      timerConfig.initialTime = 900;
-      breaks = 0;
+    if (time > 0 && !isBreak) timerConfig.initialTime = 5; {
+    completeCycles++;
+    breaks++; 
+    isBreak = true;
     }
+    
+
+    if (completeCycles >= 1 && !isBreak) timerConfig.initialTime = 15;
+      breaks = ((breaks++) + 1);
+      completeCycles = ((completeCycles++) + 3);
+    
 
     reset();
     start();
-  } else if (time === 0 && isBreak) {
+
+  }} if (time === 0 && !isBreak) {
+    breaks = ((breaks++) +3);
     isBreak = false;
-    timerConfig.initialTime = 1500;
+    timerConfig.initialTime = 25;
 
     reset();
     start();
@@ -43,6 +51,9 @@ function App() {
   return (
     <div>
       <div>
+      <p>Elapsed time: {formatTime(time)}</p>
+      <p>Cycles completed: {completeCycles}</p>
+      </div>
         <button type="button" className="btn btn-outline-success" onClick={start}>
           Start
         </button>
@@ -58,9 +69,6 @@ function App() {
           Reset
         </button>
       </div>
-      <p>Elapsed time: {formatTime(time)}</p>
-      <p>Cycles completed: {completeCycles}</p>
-    </div>
   );
 }
 
