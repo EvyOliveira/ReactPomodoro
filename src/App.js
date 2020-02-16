@@ -18,31 +18,26 @@ function App() {
   console.log("Time:", time);
   console.log("Isso vai ser exibido a cada avanço no timer!");
 
-  if (time === 0 && !isBreak) {
-    completeCycles++;
-    breaks++;
-    
-    isBreak = true;
+  if(time === 0 && !isBreak) {
+    completeCycles++
+    breaks++
 
-    if (time > 0 && !isBreak) timerConfig.initialTime = 5; {
-    completeCycles++;
-    breaks++; 
-    isBreak = true;
+    isBreak = true; 
+
+    if(completeCycles > 1 && completeCycles < 4) 
+    timerConfig.initialTime = 5 && breaks++;
+
+    else {
+      timerConfig.initialTime = 15;
+      breaks = 0;
     }
-    
-
-    if (completeCycles >= 1 && !isBreak) timerConfig.initialTime = 15;
-      breaks = ((breaks++) + 1);
-      completeCycles = ((completeCycles++) + 3);
-    
 
     reset();
     start();
-
-  }} if (time === 0 && !isBreak) {
-    breaks = ((breaks++) +3);
-    isBreak = false;
-    timerConfig.initialTime = 25;
+  }
+  else if(time === 0 && isBreak) {
+    timerConfig.initialTime = 25 - 20;
+      breaks = true;
 
     reset();
     start();
