@@ -15,8 +15,10 @@ function App() {
     console.log("Time:", time);
     console.log("Isso vai ser exibido a cada avanço no timer!");
   
-    let completeCycles = 0;
+  const counter = () => {
+
     let breaks = 0;
+    let completeCycles = 0;
     let isBreak = false;
   
     if(time === 0 && !isBreak) {
@@ -43,7 +45,7 @@ function App() {
       reset();
       start();
     }
-  
+  }
   
     return (
       <React.Fragment>
@@ -56,11 +58,10 @@ function App() {
             <button onClick={reset}>Reset</button>
           </div>
           <p>Elapsed time: {formatTime(timerConfig.initialTime)}</p>
-          <p>Cycles completed: {completeCycles}</p>
+          <p>Cycles completed: {counter.completeCycles}</p>
         </div>
       </React.Fragment>
     );
   }
 
   export default App;
-
