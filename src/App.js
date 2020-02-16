@@ -2,66 +2,66 @@ import React from "react";
 import { useTimer } from "use-timer";
 import { formatTime } from "./utils/formatTime";
 
+const timerConfig = useTimer ({
+initialTime : 10,
+timerType : "DECREMENTAL",
+endTime : 0,
+})
+
+let breaks = 0;
+let completeCycles = 0;
+let isBreak = false;
+
 function App() {
+  const { time, start, pause, reset } = useTimer(timerConfig);
 
-    const timerConfig = {
-      initialTime: 1500,
-      timerType: "DECREMENTAL",
-      endTime: 0
-    };
+  console.log("Time:", time);
+  console.log("Isso vai ser exibido a cada avanço no timer!");
 
-    const { time, start, pause, reset } = useTimer({ timerConfig });
-  
-    console.log("Time:", time);
-    console.log("Isso vai ser exibido a cada avanço no timer!");
-  
-  const counter = () => {
+  if (time === 0 && !isBreak) {
+    completeCycles++;
+    breaks++;
 
-    let breaks = 0;
-    let completeCycles = 0;
-    let isBreak = false;
-  
-    if(time === 0 && !isBreak) {
-      completeCycles++
-      breaks++
-  
-      isBreak = true;
-  
-      if(breaks < 4) 
-      timerConfig.initialTime = 300;
-  
-      else {
-        timerConfig.initialTime = 900;
-        breaks = 0;
-      }
-  
-      reset();
-      start();
+    isBreak = true;
+
+    if (breaks < 4) timerConfig.initialTime = 300;
+    else {
+      timerConfig.initialTime = 900;
+      breaks = 0;
     }
-    else if(time === 0 && isBreak) {
-      isBreak = false;
-      timerConfig.initialTime = 1500
-  
-      reset();
-      start();
-    }
-  }
-  
-    return (
-      <React.Fragment>
-        <div>
-          <div>
-            <button onClick={start}>Start</button>
-            <button value={(time)} onClick={pause}>
-              Pause
-            </button>
-            <button onClick={reset}>Reset</button>
-          </div>
-          <p>Elapsed time: {formatTime(timerConfig.initialTime)}</p>
-          <p>Cycles completed: {counter.completeCycles}</p>
-        </div>
-      </React.Fragment>
-    );
+
+    reset();
+    start();
+  } else if (time === 0 && isBreak) {
+    isBreak = false;
+    timerConfig.initialTime = 1500;
+
+    reset();
+    start();
   }
 
-  export default App;
+  return (
+    <div>
+      <div>
+        <button type="button" class="btn btn-outline-success" onClick={start}>
+          Start
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          value={time}
+          onClick={pause}
+        >
+          Pause
+        </button>
+        <button type="button" class="btn btn-outline-primary" onClick={reset}>
+          Reset
+        </button>
+      </div>
+      <p>Elapsed time: {formatTime(time)}</p>
+      <p>Cycles completed:{completeCycles}</p>
+    </div>
+  );
+}
+
+export default App;
