@@ -3,7 +3,7 @@ import { useTimer } from "use-timer";
 import { formatTime } from "./utils/formatTime";
 
 const timerConfig = {
-  initialTime: 10,
+  initialTime: 5,
   timerType: "DECREMENTAL",
   endTime: 0
 };
@@ -18,21 +18,20 @@ function App() {
   console.log("Time:", time);
   console.log("Isso vai ser exibido a cada avanço no timer!");
 
-  if (time === 0 && completeCycles < 4) {
-    breaks++;
+  if (time === 0 && !isBreak) {
     completeCycles++;
-
-    isBreak = true;
+    
+    isBreak = false;
 
     reset();
     start();
-
   }
 
   return (
     <div>
       <div>
-        <p>Elapsed time: {formatTime(time)}</p>
+        <p>Hello, I'm Pomodoro!</p>
+        <p>Time: {formatTime(time)}</p>
         <p>Cycles completed: {completeCycles}</p>
       </div>
       <button type="button" className="btn btn-outline-success" onClick={start}>
