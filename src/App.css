@@ -1,0 +1,9 @@
+.app_container {
+    font-family: 'Montserrat', sans-serif;
+    width: 350px;
+    height: 280px;
+    max-width: 500px;
+    max-height: 500px;
+    margin-top: 15vw;
+    margin-left: calc(50vw - 175px);
+}
