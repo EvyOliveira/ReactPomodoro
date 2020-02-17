@@ -18,7 +18,7 @@ function App() {
   console.log("Time:", time);
   console.log("Isso vai ser exibido a cada avanço no timer!");
 
-  if (time === 0 && completeCycles < 3) {
+  if (time === 0 && completeCycles < 4) {
     breaks++;
     completeCycles++;
 
@@ -27,14 +27,6 @@ function App() {
     reset();
     start();
 
-  }
-  else if(time === 0 && !isBreak && completeCycles ) {
-    timerConfig.initialTime = 5;
-
-    isBreak = false;
-
-    reset();
-    start();
   }
 
   return (
