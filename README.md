@@ -1,6 +1,6 @@
 # [Pomodoro Timer](https://github.com/EvyOliveira/ReactPomodoro)
 
-> This is a Pomodoro Timer in React. 
+> This is a Pomodoro Timer in React. It is a descending timer responsible for notifying the current cycle time, as well as counting the cycles until the end and keeping counting until the user intervenes.
 
 ## Features
 
