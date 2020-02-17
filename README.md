@@ -2,7 +2,7 @@
 
 > This is a Pomodoro Timer in React. 
 
-![homescreen](app.jpg)
+![Application](app.jpg)
 
 ## Features
 
