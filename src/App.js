@@ -4,10 +4,12 @@ import { formatTime } from "./utils/formatTime";
 import "./App.css";
 
 const timerConfig = {
-  initialTime: 10,
+  initialTime: 5,
   timerType: "DECREMENTAL",
-  endTime: 0
+  endTime: 0,
+
 };
+
 
 let completeCycles = 0;
 let zeroCounter = 0;
@@ -21,14 +23,22 @@ function App() {
   const { time, start, pause, reset } = useTimer(timerConfig);
 
   if(time === 0)
-  zeroCounter++
+    zeroCounter++
 
   if(zeroCounter === 2){
+    if (completeCycles === 4) {
+    
+      zeroCounter++;
+      completeCycles = 0;
+      reset();
+      start();
+    }
     reset();
     start();
     zeroCounter = 0;
     completeCycles++;
   }
+
 
   const startStopTimer = () => {
     if(isTimerRunning) {
@@ -57,7 +67,6 @@ function App() {
     pause();
     isPause = true;
   }
-
 
   return (
     <div className="app_container" align="center">
