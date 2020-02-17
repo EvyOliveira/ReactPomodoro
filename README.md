@@ -2,8 +2,6 @@
 
 > This is a Pomodoro Timer in React. 
 
-![Application](app.jpg)
-
 ## Features
 
 - **Time display:**
