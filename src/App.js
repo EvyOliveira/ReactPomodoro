@@ -4,7 +4,7 @@ import { formatTime } from "./utils/formatTime";
 import "./App.css";
 
 const timerConfig = {
-  initialTime: 10,
+  initialTime: 1500,
   timerType: "DECREMENTAL",
   endTime: 0
 };
