@@ -9,6 +9,7 @@ const timerConfig = {
   endTime: 0
 };
 
+
 let completeCycles = 0;
 let zeroCounter = 0;
 
@@ -16,6 +17,7 @@ let btnStartStopLabel = "Start";
 
 let isPause = false;
 let isTimerRunning = false;
+
 
 function App() {
   const { time, start, pause, reset } = useTimer(timerConfig);
