@@ -12,10 +12,10 @@ const timerConfig = {
 let completeCycles = 0;
 let zeroCounter = 0;
 
+let btnStartStopLabel = 'Start';
+
 let isPause = false;
 let isTimerRunning = false;
-
-let Start = 'Começar';
 
 function App() {
   const { time, start, pause, reset } = useTimer(timerConfig);
@@ -33,18 +33,19 @@ function App() {
   const startStopTimer = () => {
     if(isTimerRunning) {
       isTimerRunning = false;
-      Start = 'Começar';
+      btnStartStopLabel = 'Start';
       reset();
       return;
     }
 
     isTimerRunning = true;
-    Start = 'Recomeçar';
+    btnStartStopLabel = 'Restart';
     start();
   }
 
   const pauseTimer = () => {
     if(!isTimerRunning)
+    
     return;
 
     if(isPause) {
@@ -65,19 +66,18 @@ function App() {
         <h1>{formatTime(time)}</h1>
         <p>Cycles completed: {completeCycles}</p>
       </div>
-      <button
+      <button 
         className="btn btn-outline-success"
         type="button"
         value="Start"
-        onClick={start}
-      >
-        Start
+        onClick={startStopTimer}>{btnStartStopLabel}
+        
       </button>
-      <button
+      <button 
         className="btn btn-outline-danger"
         type="button"
         value={time}
-        onClick={pause}
+        onClick={pauseTimer}
       >
         Pause
       </button>
