@@ -1,9 +1,39 @@
-.app_container {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
     font-family: 'Montserrat', sans-serif;
+    background: #FDF5E6;
+}
+
+.app_container {
     width: 350px;
     height: 280px;
+    margin-top: 10vw;
     max-width: 500px;
     max-height: 500px;
-    margin-top: 15vw;
     margin-left: calc(50vw - 175px);
 }
+
+img {
+    width: 150px;
+    height: 170px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+strong {
+    color: #DC4A46;
+}
+
+.btn {
+    margin: 10px;
+    font-size: 18px;
+}
+
