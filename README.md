@@ -22,6 +22,7 @@ To see the versioning, follow this link about all the commits [](https://github.
 **1 -** Prepare the environment:
 
 ```sh
+$ npm install -g create-react-app
 $ npm install --save npm-git-install
 $ npm install prettier -D
 $ npm install node@12.15.0
